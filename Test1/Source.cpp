@@ -10,7 +10,7 @@ bool runScan;
 bool runSquareScan=true;
 bool runCircleScan=true;
 char choice;
-
+char colorchoice;
 //For CIRCLES
 int circleAmount = 0;
 vector<Vec3f> circles; //Vector for circle
@@ -30,6 +30,11 @@ int squareAmount = 0;
 int thresh = 50, N = 5;
 const char* wndname = "Square Detection Demo";
 vector<vector<Point> > squares;
+
+
+//FOR TRIANGLES
+int triangleAmount = 0;
+
 
 /// FUNCTIONS
 
@@ -61,56 +66,6 @@ int circleScan() {
 
 }
 
-///Standard Hough Line Transform
-int lineScan01() {
-
-	if (!frame.data) { //If there is no data close program
-		return -1;
-	}
-
-	Canny(frame, dst01, 50, 200, 3);
-	cvtColor(dst01, cdst01, CV_GRAY2BGR);
-
-	vector<Vec2f> lines;
-	HoughLines(dst01, lines, 1, CV_PI / 180, 100, 0, 0);
-	for (size_t i = 0; i < lines.size(); i++)
-	{
-		float rho = lines[i][0], theta = lines[i][1];
-		Point pt1, pt2;
-		double a = cos(theta), b = sin(theta);
-		double x0 = a*rho, y0 = b*rho;
-		pt1.x = cvRound(x0 + 1000 * (-b));
-		pt1.y = cvRound(y0 + 1000 * (a));
-		pt2.x = cvRound(x0 - 1000 * (-b));
-		pt2.y = cvRound(y0 - 1000 * (a));
-		line(frame, pt1, pt2, Scalar(0, 0, 255), 3, CV_AA);
-	}
-
-}
- /// Probabilistic Hough Line Transform
-int lineScan02() {
-
-	if (!frame.data) { //If there is no data close program
-		return -1;
-	}
-
-
-	Canny(frame, dst02, 100, 200, 3);
-	cvtColor(dst02, cdst02, CV_GRAY2BGR);
-
-
-	vector<Vec4i> lines;
-	HoughLinesP(dst02, lines, 1, CV_PI / 180, 50, 50, 10);
-
-	
-	
-for (size_t i = 0; i < lines.size(); i++)
-{
-	Vec4i l = lines[i];
-	line(frame, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 3, CV_AA);
-}
-
-}
 
 ///FUNCTIONS FOR SQUARES
 double angle(Point pt1, Point pt2, Point pt0)
@@ -215,6 +170,8 @@ void drawSquares(Mat& image, const vector<vector<Point> >& squares)
 
 }
 
+
+
 /// MAIN
 
 int main(int argc, char* argv[])
@@ -256,47 +213,162 @@ int main(int argc, char* argv[])
 			break;
 		}
 
+
+
 		if(runScan==true) {
 			
 			if (runSquareScan == true) {
-				cout << "SCANNING FOR SQUARES!" << endl;
-				findSquares(frame, squares);
-				drawSquares(frame, squares);
-			}
-			cout << "SCANNING FOR CIRCLES!" << endl;
-			circleScan();
-			//lineScan01(); //Scanning method
-			//lineScan02();
-		
-			if (squareAmount > 50) {
-				runSquareScan = false;
-				cout << "We have reached 50 squares!\nScanning is Complete\nPress 'Esc' to exit" << endl;
 				
-			}
-		
-			if (circleAmount > 10 ) {
-			runCircleScan = false;
-			cout << "We have reached 10 circles!\nScanning is Complete\nPress 'Esc' to exit" << endl;
-			cout << "Marker SCANNED!" << endl;
-			
+
+				cout << "What color have you been assigned? (r/b/g)" << endl;
+				cin >> colorchoice;
+
+				if (colorchoice == 'r') {
+					cout << "Red is your color!" << endl;
+				}
+				if (colorchoice == 'b') {
+					cout << "Blue is your color!" << endl;
+				}
+
+				if (colorchoice == 'g') {
+					cout << "Green is your color!" << endl;
+				}
+
+				
+				
+				
+				//SCANNING FOR COLOR
+
+				//IF correct Color
+				cout << "Are you ready to scan the first marker?" << endl;
+				cin >> choice;
+				while (choice == 'y') {
+					cout << "SCANNING FOR MARKER 01!" << endl;  //FIRST MARKER SCAN
+					
+					cout << "SCANNING FOR CIRCLE!" << endl; //TEST
+					circleScan();
+					if (circleAmount > 10) {
+								break;
+							}
+						}
+
+
+
+				cout << "Are you ready to scan the second marker?" << endl;
+				cin >> choice;
+				while (choice == 'y') {
+					circleAmount = 0;
+					cout << "SCANNING FOR MARKER 02!" << endl;  //SECOND MARKER SCAN
+					cout << "SCANNING FOR Triangle!" << endl; //TEST
+					//triangleScan();
+					if (triangleAmount > 25) {
+						break;
+					}
+				}
+
+
+
+
+
+					cout << "Are you ready to scan the third marker?" << endl;
+					cin >> choice;
+				
+					while (choice == 'y') {
+						triangleAmount = 0;
+						cout << "SCANNING FOR MARKER 03!" << endl;  //THIRD MARKER SCAN
+						cout << "SCANNING FOR Square!" << endl; //TEST
+						findSquares(frame, squares);
+						drawSquares(frame, squares);
+						if (squareAmount > 25) {
+							break;
+						}
+					
+					}
+					
+					
+					
+					cout << "Are you ready to scan the fourth marker?" << endl;
+					cin >> choice;
+					while (choice == 'y') {
+						squareAmount = 0;
+						cout << "SCANNING FOR MARKER 04!" << endl;  //FOURTH MARKER SCAN
+						cout << "SCANNING FOR Circle and Triangle!" << endl; //TEST
+						circleScan();
+						//triangleScan();
+						if (circleAmount < 10 && triangleAmount < 25) {
+							break;
+						}
+					}
+					
+					
+					
+					cout << "Are you ready to scan the fifth marker?" << endl;
+					cin >> choice;
+					while (choice == 'y') {
+						circleAmount = 0;
+						triangleAmount = 0;
+						cout << "SCANNING FOR MARKER 05!" << endl;  //FIFTH MARKER SCAN
+						cout << "SCANNING FOR Circle and Square!" << endl; //TEST
+						circleScan();
+						findSquares(frame, squares);
+						drawSquares(frame, squares);
+						if (circleAmount < 10 && squareAmount < 25) {
+							break;
+						}
+
+					}
+					
+					
+					cout << "Are you ready to scan the sixth marker?" << endl;
+					cin >> choice;
+					while (choice == 'y') {
+						circleAmount = 0;
+						squareAmount = 0;
+						cout << "SCANNING FOR MARKER 06!" << endl;  //SIXTH MARKER SCAN
+						cout << "SCANNING FOR Square and Triangle!" << endl; //TEST
+						circleScan();
+						//triangleScan();
+						if (circleAmount < 10 && triangleAmount < 25) {
+							break;
+						}
+					}
+
+					
+					
+					cout << "Are you ready to scan the seventh marker?" << endl;
+					cin >> choice;
+					while (choice == 'y') {
+						circleAmount = 0;
+						triangleAmount = 0;
+						cout << "SCANNING FOR MARKER 07!" << endl;  //SEVENTH MARKER SCAN
+						cout << "SCANNING FOR Square and Triangle!" << endl; //TEST
+						circleScan();
+						//triangleScan();
+						findSquares(frame, squares);
+						drawSquares(frame, squares);
+						cout << "You have completed the RUN!" << endl;
+
+					}
+					if (choice == 'n') {
+						cout << "GET READY FOR SCANNING" << endl;
+					}
+
+				}
 		
 		}
 
+			imshow("Square and Circles", frame);
+			namedWindow("Square and Circles", CV_WINDOW_AUTOSIZE);
 
 		
 	//	namedWindow("Camera with Squares", CV_WINDOW_AUTOSIZE);
 		//imshow("Camera with Squares", frame);
-		//namedWindow("Camera with Lines01", CV_WINDOW_AUTOSIZE); //create a window called "Camera" ///WINDOWS FOR SHOWING THE DIFFERENT KINDS OF DETECTION
-		//imshow("Camera with Lines01", frame); //Assign orig_image to window Camera 
-		//namedWindow("Camera with Lines02", CV_WINDOW_AUTOSIZE); //create a window called "Camera"
-		//imshow("Camera with Lines02", frame); //Assign orig_image to window Camera */
 		//namedWindow("Camera with Circles", CV_WINDOW_AUTOSIZE); //create a window called "Camera"
 		//imshow("Camera with Circles", frame); //Assign orig_image to window Camera
 		cout << "CircleAmount:" << circleAmount << endl;
 		cout << "SquareAmount:" << squareAmount << endl;
 		
-		imshow("Square and Circles", frame);
-		namedWindow("Square and Circles", CV_WINDOW_AUTOSIZE);
+	
 
 		
 			
