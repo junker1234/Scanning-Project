@@ -17,6 +17,7 @@ bool runScan;
 bool runSquareScan=true;
 bool runCircleScan=true;
 char choice;
+char choice01;
 char colorchoice;
 
 /// FUNCTIONS
@@ -134,6 +135,8 @@ void triangleScan() {
 
 
 
+
+
 /// MAIN
 
 int main(int argc, char* argv[])
@@ -156,7 +159,7 @@ int main(int argc, char* argv[])
 	{
 		cout << "To turn off camera and quit press 'Esc'" << endl;
 		OpenCamera = true;
-		runScan = true;
+
 	}
 
 
@@ -169,14 +172,27 @@ int main(int argc, char* argv[])
 
 	while (OpenCamera == true) {
 
+	
 		bool bSuccess = cap.read(input); // read a new frame from video
+		imshow("Camera", input);
+		
 		if (!bSuccess) { //if not success, break loop
 			cout << "Cannot read a frame from video stream" << endl;
 			break;
 		}
+		
+		/*
+		cout << "Start Scanning? y/n" << endl;
+		cin >> choice01;
 
-
-
+		if (choice01 == 'y') {
+			runScan = true;
+		}
+		if (choice == 'n') {
+			return 0;
+		} 
+		 
+		*/
 		if (runScan == true) {
 
 
@@ -194,7 +210,7 @@ int main(int argc, char* argv[])
 
 			if (colorchoice == 'g') {
 				cout << "Green is your color!" << endl;
-			}
+		}
 
 
 
@@ -206,6 +222,8 @@ int main(int argc, char* argv[])
 			cout << "Are you ready to scan the first marker?" << endl;
 			cin >> choice;
 			while (choice == 'y') {
+				bool bSuccess = cap.read(input); // read a new frame from video
+				imshow("Camera Scanning for Marker 1", input);
 				cout << "SCANNING FOR MARKER 01!" << endl;  //FIRST MARKER SCAN
 					cout << "SCANNING FOR CIRCLE!" << endl; //TEST
 				circleScan();
