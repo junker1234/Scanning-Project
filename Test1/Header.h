@@ -13,6 +13,7 @@
 #include <string>
 #include <stdio.h>
 #include <math.h>
+#include <cmath>
 
 using namespace cv;
 using namespace std; 
