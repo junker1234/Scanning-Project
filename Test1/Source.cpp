@@ -55,8 +55,10 @@ int circleScan() {
 		int radius = r.width / 2;
 
 		if (abs(1 - ((double)r.width / r.height)) <= 0.2 && abs(1 - (area / (CV_PI * pow(radius, 2)))) <= 0.2) {
-			circleScanCount++;
-			cout << "Circle";
+			while (circleScanCount < 1000) {
+				circleScanCount++;
+				cout << "Circle";
+			}
 		}
 	}
 	return 0;
