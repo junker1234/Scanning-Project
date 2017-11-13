@@ -19,6 +19,10 @@ bool runCircleScan=true;
 char choice;
 char choice01;
 char colorchoice;
+bool m1, m2, m3, m4, m5, m6, m7;
+
+
+
 
 /// FUNCTIONS
 
@@ -32,7 +36,6 @@ static double angle(Point pt1, Point pt2, Point pt0)
 }
 
 int circleScan() {
-	
 	vector<vector<Point> > contours;
 	findContours(redImg.clone(), contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
@@ -104,8 +107,10 @@ void squareScan() {
 				cout << "Square";
 			}
 		}
+
 	}
 }
+
 
 void triangleScan() {
 	// Find contours
@@ -132,6 +137,182 @@ void triangleScan() {
 		}
 	}
 }
+
+
+
+
+void markerCheck() {
+	if (m1 == false && circleScanCount == 100) {
+		cout << "Marker 1" << endl;
+		m1 = true;
+		circleScanCount = 0;
+		triangleScanCount = 0;
+		squareScanCount = 0;
+	}
+
+	if (m1 == true && m2 == false && m3 == false && squareScanCount == 100) {
+		cout << "Marker 2" << endl;
+		m2 = true;
+		circleScanCount = 0;
+		triangleScanCount = 0;
+		squareScanCount = 0;
+	}
+
+	if (m2 == true && m3 == false && m4 == false && triangleScanCount == 100) {
+		cout << "Marker 3" << endl;
+		m3 = true;
+		circleScanCount = 0;
+		triangleScanCount = 0;
+		squareScanCount = 0;
+	}
+
+	if (m3 == true && m4 == false && m5 == false && squareScanCount == 100 && circleScanCount == 100) {
+		cout << "Marker 4" << endl;
+		m4 = true;
+		circleScanCount = 0;
+		triangleScanCount = 0;
+		squareScanCount = 0;
+	}
+
+	if (m4 == true && m5 == false && m6 == false && squareScanCount == 100 && triangleScanCount == 100) {
+		cout << "Marker 5" << endl;
+		m5 = true;
+		circleScanCount = 0;
+		triangleScanCount = 0;
+		squareScanCount = 0;
+	}
+
+	if (m5 == true && m6 == false && m7 == false && circleScanCount == 100 && triangleScanCount == 100) {
+		cout << "Marker 6" << endl;
+		m6 = true;
+		circleScanCount = 0;
+		triangleScanCount = 0;
+		squareScanCount = 0;
+	}
+
+	if (m6 == true && m7 == false && circleScanCount == 100 && triangleScanCount == 100 && squareScanCount == 100) {
+		cout << "Marker 7" << endl;
+		m7 = true;
+	}
+} 
+
+
+void markerCheck02() {
+
+	cout << "Are you ready to scan the first marker?" << endl;
+	cin >> choice;
+	while (choice == 'y') {
+
+		cout << "SCANNING FOR MARKER 01!" << endl;  //FIRST MARKER SCAN
+		cout << "SCANNING FOR CIRCLE!" << endl; //TEST
+		circleScan();
+		if (circleScanCount > 50) {
+			break;
+		}
+
+
+
+
+		cout << "Are you ready to scan the second marker?" << endl;
+		cin >> choice;
+		while (choice == 'y') {
+			circleScanCount = 0;
+			cout << "SCANNING FOR MARKER 02!" << endl;  //SECOND MARKER SCAN
+			cout << "SCANNING FOR Triangle!" << endl; //TEST
+			triangleScan();
+			if (triangleScanCount > 25) {
+				break;
+			}
+		}
+
+
+
+
+
+		cout << "Are you ready to scan the third marker?" << endl;
+		cin >> choice;
+
+		while (choice == 'y') {
+			triangleScanCount = 0;
+			cout << "SCANNING FOR MARKER 03!" << endl;  //THIRD MARKER SCAN
+			cout << "SCANNING FOR Square!" << endl; //TEST
+			squareScan();
+			if (squareScanCount > 25) {
+				break;
+			}
+
+		}
+
+
+
+		cout << "Are you ready to scan the fourth marker?" << endl;
+		cin >> choice;
+		while (choice == 'y') {
+			squareScanCount = 0;
+			cout << "SCANNING FOR MARKER 04!" << endl;  //FOURTH MARKER SCAN
+			cout << "SCANNING FOR Circle and Triangle!" << endl; //TEST
+			circleScan();
+			triangleScan();
+			if (circleScanCount < 10 && triangleScanCount < 25) {
+				break;
+			}
+		}
+
+
+
+		cout << "Are you ready to scan the fifth marker?" << endl;
+		cin >> choice;
+		while (choice == 'y') {
+			circleScanCount = 0;
+			triangleScanCount = 0;
+			cout << "SCANNING FOR MARKER 05!" << endl;  //FIFTH MARKER SCAN
+			cout << "SCANNING FOR Circle and Square!" << endl; //TEST
+			circleScan();
+			squareScan();
+			if (circleScanCount < 10 && squareScanCount < 25) {
+				break;
+			}
+
+		}
+
+
+		cout << "Are you ready to scan the sixth marker?" << endl;
+		cin >> choice;
+		while (choice == 'y') {
+			circleScanCount = 0;
+			squareScanCount = 0;
+			cout << "SCANNING FOR MARKER 06!" << endl;  //SIXTH MARKER SCAN
+			cout << "SCANNING FOR Square and Triangle!" << endl; //TEST
+			circleScan();
+			triangleScan();
+			if (circleScanCount < 10 && triangleScanCount < 25) {
+				break;
+			}
+		}
+
+
+
+		cout << "Are you ready to scan the seventh marker?" << endl;
+		cin >> choice;
+		while (choice == 'y') {
+			circleScanCount = 0;
+			triangleScanCount = 0;
+			cout << "SCANNING FOR MARKER 07!" << endl;  //SEVENTH MARKER SCAN
+			cout << "SCANNING FOR Square and Triangle!" << endl; //TEST
+			circleScan();
+			triangleScan();
+			squareScan();
+			cout << "You have completed the RUN!" << endl;
+
+		}
+		if (choice == 'n') {
+			cout << "GET READY FOR SCANNING" << endl;
+		}
+
+	}
+}
+
+
 
 
 
@@ -172,181 +353,21 @@ int main(int argc, char* argv[])
 
 	while (OpenCamera == true) {
 
-	
+
 		bool bSuccess = cap.read(input); // read a new frame from video
-		imshow("Camera", input);
-		
+
 		if (!bSuccess) { //if not success, break loop
 			cout << "Cannot read a frame from video stream" << endl;
 			break;
 		}
+		cvtColor(input, src, CV_BGR2HSV);
+		inRange(src, Scalar(100, 150, 0), Scalar(140, 255, 255), redImg);
 		
-		/*
-		cout << "Start Scanning? y/n" << endl;
-		cin >> choice01;
-
-		if (choice01 == 'y') {
-			runScan = true;
-		}
-		if (choice == 'n') {
-			return 0;
-		} 
-		 
-		*/
-		if (runScan == true) {
-
-
-
-
-			cout << "What color have you been assigned? (r/b/g)" << endl;
-			cin >> colorchoice;
-
-			if (colorchoice == 'r') {
-				cout << "Red is your color!" << endl;
-			}
-			if (colorchoice == 'b') {
-				cout << "Blue is your color!" << endl;
-			}
-
-			if (colorchoice == 'g') {
-				cout << "Green is your color!" << endl;
-		}
-
-
-
-
-			//SCANNING FOR COLOR
-
-			//IF correct Color 
-
-			cout << "Are you ready to scan the first marker?" << endl;
-			cin >> choice;
-			while (choice == 'y') {
-				bool bSuccess = cap.read(input); // read a new frame from video
-				imshow("Camera Scanning for Marker 1", input);
-				cout << "SCANNING FOR MARKER 01!" << endl;  //FIRST MARKER SCAN
-					cout << "SCANNING FOR CIRCLE!" << endl; //TEST
-				circleScan();
-				if (circleScanCount > 50) {
-					break;
-				}
-				
-
-
-
-				cout << "Are you ready to scan the second marker?" << endl;
-				cin >> choice;
-				while (choice == 'y') {
-					circleScanCount = 0;
-					cout << "SCANNING FOR MARKER 02!" << endl;  //SECOND MARKER SCAN
-					cout << "SCANNING FOR Triangle!" << endl; //TEST
-					triangleScan();
-					if (triangleScanCount > 25) {
-						break;
-					}
-				}
-
-
-
-
-
-				cout << "Are you ready to scan the third marker?" << endl;
-				cin >> choice;
-
-				while (choice == 'y') {
-					triangleScanCount = 0;
-					cout << "SCANNING FOR MARKER 03!" << endl;  //THIRD MARKER SCAN
-					cout << "SCANNING FOR Square!" << endl; //TEST
-					squareScan();
-					if (squareScanCount > 25) {
-						break;
-					}
-
-				}
-
-
-
-				cout << "Are you ready to scan the fourth marker?" << endl;
-				cin >> choice;
-				while (choice == 'y') {
-					squareScanCount = 0;
-					cout << "SCANNING FOR MARKER 04!" << endl;  //FOURTH MARKER SCAN
-					cout << "SCANNING FOR Circle and Triangle!" << endl; //TEST
-					circleScan();
-					triangleScan();
-					if (circleScanCount < 10 && triangleScanCount < 25) {
-						break;
-					}
-				}
-
-
-
-				cout << "Are you ready to scan the fifth marker?" << endl;
-				cin >> choice;
-				while (choice == 'y') {
-					circleScanCount = 0;
-					triangleScanCount = 0;
-					cout << "SCANNING FOR MARKER 05!" << endl;  //FIFTH MARKER SCAN
-					cout << "SCANNING FOR Circle and Square!" << endl; //TEST
-					circleScan();
-					squareScan();
-					if (circleScanCount < 10 && squareScanCount < 25) {
-						break;
-					}
-
-				}
-
-
-				cout << "Are you ready to scan the sixth marker?" << endl;
-				cin >> choice;
-				while (choice == 'y') {
-					circleScanCount = 0;
-					squareScanCount = 0;
-					cout << "SCANNING FOR MARKER 06!" << endl;  //SIXTH MARKER SCAN
-					cout << "SCANNING FOR Square and Triangle!" << endl; //TEST
-					circleScan();
-					triangleScan();
-					if (circleScanCount < 10 && triangleScanCount < 25) {
-						break;
-					}
-				}
-
-
-
-				cout << "Are you ready to scan the seventh marker?" << endl;
-				cin >> choice;
-				while (choice == 'y') {
-					circleScanCount = 0;
-					triangleScanCount = 0;
-					cout << "SCANNING FOR MARKER 07!" << endl;  //SEVENTH MARKER SCAN
-					cout << "SCANNING FOR Square and Triangle!" << endl; //TEST
-					circleScan();
-					triangleScan();
-					squareScan();
-					cout << "You have completed the RUN!" << endl;
-
-				}
-				if (choice == 'n') {
-					cout << "GET READY FOR SCANNING" << endl;
-				}
-
-			} 
-
-
-
-
-
-
-			cout << "CircleAmount:" << circleScanCount << endl;
-			cout << "SquareAmount:" << squareScanCount << endl;
-			cout << "TriangleAmount:" << triangleScanCount << endl;
-
-		
-
-
-
-
-		}
+		squareScan();
+		circleScan();
+		triangleScan();
+		markerCheck();
+		imshow("Shapes", input);
 
 
 
@@ -354,10 +375,9 @@ int main(int argc, char* argv[])
 
 		if (waitKey(30) == 27) { //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
 			cout << "esc key is pressed by user" << endl;
-			break;
+
 		}
 	}
-	return 0;
 }
 	
 

@@ -1,4 +1,4 @@
 ﻿  Source.cpp
-c:\users\junkers master pc\desktop\scanning project\test1\source.cpp(86): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Test1.vcxproj -> C:\Users\Junkers Master PC\Desktop\Scanning Project\x64\Debug\Test1.exe
-  Test1.vcxproj -> C:\Users\Junkers Master PC\Desktop\Scanning Project\x64\Debug\Test1.pdb (Partial PDB)
+c:\users\junker\desktop\scanning-project\test1\source.cpp(89): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Test1.vcxproj -> C:\Users\Junker\Desktop\Scanning-Project\x64\Debug\Test1.exe
+  Test1.vcxproj -> C:\Users\Junker\Desktop\Scanning-Project\x64\Debug\Test1.pdb (Partial PDB)
