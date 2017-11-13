@@ -336,7 +336,7 @@ int main(int argc, char* argv[])
 	cin >> choice;
 
 
-	if (choice == 'y')
+	if (choice == 'y' || choice == 'Y')
 	{
 		cout << "To turn off camera and quit press 'Esc'" << endl;
 		OpenCamera = true;
@@ -344,7 +344,7 @@ int main(int argc, char* argv[])
 	}
 
 
-	else if (choice == 'n') {
+	else if (choice == 'n' || choice == 'N') {
 		return 0;
 	}
 
@@ -360,6 +360,8 @@ int main(int argc, char* argv[])
 			cout << "Cannot read a frame from video stream" << endl;
 			break;
 		}
+		
+		
 		cvtColor(input, src, CV_BGR2HSV);
 		inRange(src, Scalar(100, 150, 0), Scalar(140, 255, 255), redImg);
 		
@@ -369,7 +371,7 @@ int main(int argc, char* argv[])
 		markerCheck();
 		imshow("Shapes", input);
 
-
+		
 
 
 
