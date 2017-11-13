@@ -14,12 +14,12 @@ int triangleScanCount = 0;
 //For MAIN
 bool OpenCamera;
 bool runScan;
-bool runSquareScan=true;
-bool runCircleScan=true;
+bool runSquareScan = true;
+bool runCircleScan = true;
 char choice;
 char choice01;
 char colorchoice;
-bool m1, m2, m3, m4, m5, m6, m7;
+bool m1, m2, m3, m4, m5, m6, m7, redRoute, blueRoute, greenRoute;
 
 
 
@@ -35,7 +35,7 @@ static double angle(Point pt1, Point pt2, Point pt0)
 	return (dx1*dx2 + dy1*dy2) / sqrt((dx1*dx1 + dy1*dy1)*(dx2*dx2 + dy2*dy2) + 1e-10);
 }
 
-int circleScan() {
+void circleScan() {
 	vector<vector<Point> > contours;
 	findContours(redImg.clone(), contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
@@ -58,11 +58,13 @@ int circleScan() {
 		int radius = r.width / 2;
 
 		if (abs(1 - ((double)r.width / r.height)) <= 0.2 && abs(1 - (area / (CV_PI * pow(radius, 2)))) <= 0.2) {
-			circleScanCount++;
-			cout << "Circle";
+			while (circleScanCount < 20) {
+				circleScanCount++;
+				//cout << "Circle"<<circleScanCount<<endl;
+				break;
+			}
 		}
 	}
-	return 0;
 }
 
 void squareScan() {
@@ -103,8 +105,11 @@ void squareScan() {
 			// Use the degrees obtained above and the number of vertices
 			// to determine the shape of the contour
 			if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3) {
-				squareScanCount++;
-				cout << "Square";
+				while (squareScanCount < 20) {
+					squareScanCount++;
+					//cout << "Square"<<squareScanCount<<endl;
+					break;
+				}
 			}
 		}
 
@@ -132,8 +137,11 @@ void triangleScan() {
 
 		if (approx.size() == 3)
 		{
-			triangleScanCount++;
-			cout << "Triangle";
+			while (triangleScanCount < 20) {
+				triangleScanCount++;
+				//cout << "Triangle"<<triangleScan<<endl;
+				break;
+			}
 		}
 	}
 }
@@ -142,15 +150,15 @@ void triangleScan() {
 
 
 void markerCheck() {
-	if (m1 == false && circleScanCount == 100) {
+
+	if (m1 == false && circleScanCount == 20) {
 		cout << "Marker 1" << endl;
 		m1 = true;
 		circleScanCount = 0;
 		triangleScanCount = 0;
 		squareScanCount = 0;
 	}
-
-	if (m1 == true && m2 == false && m3 == false && squareScanCount == 100) {
+	if (m1 == true && m2 == false && m3 == false && squareScanCount == 20) {
 		cout << "Marker 2" << endl;
 		m2 = true;
 		circleScanCount = 0;
@@ -158,7 +166,7 @@ void markerCheck() {
 		squareScanCount = 0;
 	}
 
-	if (m2 == true && m3 == false && m4 == false && triangleScanCount == 100) {
+	if (m2 == true && m3 == false && m4 == false && triangleScanCount == 20) {
 		cout << "Marker 3" << endl;
 		m3 = true;
 		circleScanCount = 0;
@@ -166,7 +174,8 @@ void markerCheck() {
 		squareScanCount = 0;
 	}
 
-	if (m3 == true && m4 == false && m5 == false && squareScanCount == 100 && circleScanCount == 100) {
+	if (m3 == true && m4 == false && m5 == false && squareScanCount == 20 && circleScanCount == 20) {
+		circleScanCount = 0;
 		cout << "Marker 4" << endl;
 		m4 = true;
 		circleScanCount = 0;
@@ -174,7 +183,7 @@ void markerCheck() {
 		squareScanCount = 0;
 	}
 
-	if (m4 == true && m5 == false && m6 == false && squareScanCount == 100 && triangleScanCount == 100) {
+	if (m4 == true && m5 == false && m6 == false && squareScanCount == 20 && triangleScanCount == 20) {
 		cout << "Marker 5" << endl;
 		m5 = true;
 		circleScanCount = 0;
@@ -182,7 +191,7 @@ void markerCheck() {
 		squareScanCount = 0;
 	}
 
-	if (m5 == true && m6 == false && m7 == false && circleScanCount == 100 && triangleScanCount == 100) {
+	if (m5 == true && m6 == false && m7 == false && circleScanCount == 20 && triangleScanCount == 20) {
 		cout << "Marker 6" << endl;
 		m6 = true;
 		circleScanCount = 0;
@@ -190,11 +199,11 @@ void markerCheck() {
 		squareScanCount = 0;
 	}
 
-	if (m6 == true && m7 == false && circleScanCount == 100 && triangleScanCount == 100 && squareScanCount == 100) {
+	if (m6 == true && m7 == false && circleScanCount == 20 && triangleScanCount == 20 && squareScanCount == 20) {
 		cout << "Marker 7" << endl;
 		m7 = true;
 	}
-} 
+}
 
 
 void markerCheck02() {
@@ -320,17 +329,11 @@ void markerCheck02() {
 
 /// MAIN
 
-int main(int argc, char* argv[])
-{
-
-
+int main(int argc, char* argv[]) {
 	if (!cap.isOpened()) {  // if not success, exit program
 		cout << "Cannot open the video cam" << endl;
 		return -1;
 	}
-
-	double dWidth = cap.get(CV_CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
-	double dHeight = cap.get(CV_CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
 
 	cout << "Turn on camera? y/n" << endl;
 	cin >> choice;
@@ -348,38 +351,44 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-
-
-
 	while (OpenCamera == true) {
-
-
 		bool bSuccess = cap.read(input); // read a new frame from video
-
 		if (!bSuccess) { //if not success, break loop
 			cout << "Cannot read a frame from video stream" << endl;
 			break;
 		}
-		
-		
+
+		//DECIDES COLOR 
+		blueRoute = true;
+		redRoute = false;
+		greenRoute = false;
+
 		cvtColor(input, src, CV_BGR2HSV);
-		inRange(src, Scalar(100, 150, 0), Scalar(140, 255, 255), redImg);
+		if (blueRoute)
+			inRange(src, Scalar(100, 150, 0), Scalar(140, 255, 255), redImg);
+
+
+		if (redRoute)
+			inRange(src, Scalar(0, 100, 100), Scalar(15, 255, 255), redImg);
+
+		if (greenRoute)
+			inRange(src, Scalar(29, 86, 6), Scalar(64, 255, 255), redImg);
+
 		
-		squareScan();
-		circleScan();
-		triangleScan();
+			squareScan();
+		
+			circleScan();
+		
+			triangleScan();
+
+
 		markerCheck();
 		imshow("Shapes", input);
 
-		
-
-
-
 		if (waitKey(30) == 27) { //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
 			cout << "esc key is pressed by user" << endl;
-
+			break;
 		}
 	}
+	return 0;
 }
-	
-
