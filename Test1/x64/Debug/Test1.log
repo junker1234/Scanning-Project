@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿  Source.cpp
 c:\users\junker\desktop\scanning-project\test1\source.cpp(91): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Test1.vcxproj -> C:\Users\Junker\Desktop\Scanning-Project\x64\Debug\Test1.exe
   Test1.vcxproj -> C:\Users\Junker\Desktop\Scanning-Project\x64\Debug\Test1.pdb (Partial PDB)
+=======
+﻿LINK : fatal error LNK1168: cannot open C:\Users\camil\OneDrive\Dokumenter\GitHub\Scanning-Project\x64\Debug\Test1.exe for writing
+>>>>>>> 7ded22701f68498fc6a548d2ed3d5454c0d1d75a
