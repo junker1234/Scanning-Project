@@ -146,12 +146,38 @@ void triangleScan() {
 	}
 }
 
-
-
+void marker01() {
+	circleScan();
+}					
+void marker02() {
+	triangleScan();
+}
+void marker03() {
+	squareScan();
+}
+void marker04() {
+	circleScan();
+	triangleScan();
+}
+void marker05() {
+	circleScan();
+	squareScan();
+}
+void marker06() {
+	squareScan();
+	triangleScan();
+}
+void marker07() {
+	circleScan();
+	triangleScan();
+	squareScan();
+}
+					
+					
 
 void markerCheck() {
 
-	if (m1 == false && circleScanCount == 20) {
+	if (m1 == true && circleScanCount == 20) {
 		cout << "Marker 1" << endl;
 		m1 = true;
 		circleScanCount = 0;
