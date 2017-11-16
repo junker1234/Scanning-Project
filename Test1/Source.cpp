@@ -254,7 +254,7 @@ int main(int argc, char* argv[]) {
 			}
 			else {
 			putText(input, "You are at the wrong marker, please go to marker " + markercount, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
-			}*/
+			}*/ 
 
 		}
 		if (m2) {

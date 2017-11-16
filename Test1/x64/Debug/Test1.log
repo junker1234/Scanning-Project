@@ -29,6 +29,5 @@ c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(344)
 c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(347): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(350): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(361): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  LINK : C:\Users\camil\OneDrive\Dokumenter\GitHub\Scanning-Project\x64\Debug\Test1.exe not found or not built by the last incremental link; performing full link
   Test1.vcxproj -> C:\Users\camil\OneDrive\Dokumenter\GitHub\Scanning-Project\x64\Debug\Test1.exe
   Test1.vcxproj -> C:\Users\camil\OneDrive\Dokumenter\GitHub\Scanning-Project\x64\Debug\Test1.pdb (Partial PDB)
