@@ -161,43 +161,43 @@ void markerCheck() {
 	if (circleScanCount == 20 && triangleScanCount == 0 && squareScanCount == 0 && m1 == false) {
 		cout << "Marker 1" << endl;
 		m1 = true;
-		b1 = true;
+		//b1 = true;
 	}
 
 	if (circleScanCount == 0 && triangleScanCount == 0 && squareScanCount == 20 && m2 == false) {
 		cout << "Marker 2" << endl;
 		m2 = true;
-		b2 = true;
+		//b2= true;
 	}
 
 	if (circleScanCount == 0 && triangleScanCount == 20 && squareScanCount == 0 && m3 == false) {
 		cout << "Marker 3" << endl;
 		m3 = true;
-		b3 = true;
+		//b3 = true;
 	}
 
 	if (circleScanCount == 20 && triangleScanCount == 20 && squareScanCount == 0 && m4 == false) {
 		cout << "Marker 4" << endl;
 		m4 = true;
-		b4 = true;
+		//b4 = true;
 	}
 
 	if (circleScanCount == 20 && triangleScanCount == 0 && squareScanCount == 20 && m5 == false) {
 		cout << "Marker 5" << endl;
 		m5 = true;
-		b5 = true;
+		//b5 = true;
 	}
 
 	if (circleScanCount == 0 && triangleScanCount == 20 && squareScanCount == 20 && m6 == false) {
 		cout << "Marker 6" << endl;
 		m6 = true;
-		b6 = true;
+		//b6 = true;
 	}
 
 	if (circleScanCount == 20 && triangleScanCount == 20 && squareScanCount == 20 && m7 == false) {
 		cout << "Marker 7" << endl;
 		m7 = true;
-		b7 = true;
+		//b7 = true;
 	}
 }
 
@@ -244,8 +244,28 @@ int main(int argc, char* argv[]) {
 		markerCheck();
 
 		if (m1) {
-			putText(input, "Correct marker - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
-
+			/*if () {
+			putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}*/
+			if (b1&&b2 && !b3) {
+				putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3 && !b4) {
+				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4 && !b5) {
+				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5 && !b6) {
+				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5&&b6 && !b7) {
+				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else {
+				b1 = true;
+				putText(input, "Correct marker - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
 			/*cout << markercount << endl;
 
 			if (markercount == 2) {
@@ -254,14 +274,27 @@ int main(int argc, char* argv[]) {
 			}
 			else {
 			putText(input, "You are at the wrong marker, please go to marker " + markercount, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
-			}*/ 
+			}*/
 
 		}
 		if (m2) {
 			if (!b1) {
 				putText(input, "Wrong marker - Find the circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
+			else if (b1&&b2&&b3 && !b4) {
+				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4 && !b5) {
+				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5 && !b6) {
+				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5&&b6 && !b7) {
+				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
 			else {
+				b2 = true;
 				putText(input, "Correct marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 		}
@@ -269,10 +302,20 @@ int main(int argc, char* argv[]) {
 			if (!b1) {
 				putText(input, "Wrong marker - Find the circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b2) {
+			else if (b1 && !b2) {
 				putText(input, "Wrong marker - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
+			else if (b1&&b2&&b3&&b4 && !b5) {
+				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5 && !b6) {
+				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5&&b6 && !b7) {
+				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
 			else {
+				b3 = true;
 				putText(input, "Correct marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 		}
@@ -280,13 +323,23 @@ int main(int argc, char* argv[]) {
 			if (!b1) {
 				putText(input, "Wrong marker - Find the circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b2) {
+			else if (b1 && !b2) {
 				putText(input, "Wrong marker - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b3) {
-				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			else if (b1 && b2 && !b3) {
+				putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4 && !b5) {
+				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5 && !b6) {
+				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5&&b6 && !b7) {
+				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else {
+				b4 = true;
 				putText(input, "Correct marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 		}
@@ -294,16 +347,23 @@ int main(int argc, char* argv[]) {
 			if (!b1) {
 				putText(input, "Wrong marker - Find the circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b2) {
+			else if (b1 && !b2) {
 				putText(input, "Wrong marker - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b3) {
+			else if (b1 && b2 && !b3) {
+				putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3 && !b4) {
 				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b4) {
-				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			else if (b1&&b2&&b3&&b4&&b5 && !b6) {
+				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3&&b4&&b5&&b6 && !b7) {
+				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else {
+				b5 = true;
 				putText(input, "Correct marker - Find the square and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 		}
@@ -311,19 +371,23 @@ int main(int argc, char* argv[]) {
 			if (!b1) {
 				putText(input, "Wrong marker - Find the circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b2) {
+			else if (b1 && !b2) {
 				putText(input, "Wrong marker - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b3) {
+			else if (b1 && b2 && !b3) {
+				putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			}
+			else if (b1&&b2&&b3 && !b4) {
 				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b4) {
+			else if (b1&&b2&&b3&&b4 && !b5) {
 				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b5) {
-				putText(input, "Wrong marker - Find the square and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			else if (b1&&b2&&b3&&b4&&b5&&b6 && !b7) {
+				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else {
+				b6 = true;
 				putText(input, "Correct marker - Find the square, circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 		}
@@ -331,22 +395,23 @@ int main(int argc, char* argv[]) {
 			if (!b1) {
 				putText(input, "Wrong marker - Find the circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b2) {
+			else if (b1 && !b2) {
 				putText(input, "Wrong marker - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b3) {
+			else if (b1 && b2 && !b3) {
 				putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b4) {
+			else if (b1&&b2&&b3 && !b4) {
 				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b5) {
+			else if (b1&&b2&&b3&&b4 && !b5) {
 				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
-			else if (!b6) {
-				putText(input, "Wrong marker - Find the square and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+			else if (b1&&b2&&b3&&b4&&b5 && !b6) {
+				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else {
+				b7 = true;
 				putText(input, "You found the last marker!", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 		}
@@ -362,9 +427,6 @@ int main(int argc, char* argv[]) {
 
 		// Draw the image
 		input.copyTo(canvas(Rect(0, 0, input.cols, input.rows)));
-
-
-
 
 		// Setup callback function
 		namedWindow(winName);
