@@ -1,8 +1,60 @@
-<<<<<<< HEAD
 ﻿  Source.cpp
-c:\users\junker\desktop\scanning-project\test1\source.cpp(91): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Test1.vcxproj -> C:\Users\Junker\Desktop\Scanning-Project\x64\Debug\Test1.exe
-  Test1.vcxproj -> C:\Users\Junker\Desktop\Scanning-Project\x64\Debug\Test1.pdb (Partial PDB)
-=======
-﻿LINK : fatal error LNK1168: cannot open C:\Users\camil\OneDrive\Dokumenter\GitHub\Scanning-Project\x64\Debug\Test1.exe for writing
->>>>>>> 7ded22701f68498fc6a548d2ed3d5454c0d1d75a
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(152): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(296): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(299): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(302): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(305): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(308): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(311): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(314): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(317): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(324): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(328): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(331): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(334): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(337): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(340): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(343): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(346): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(353): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(356): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(360): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(363): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(366): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(369): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(372): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(375): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(382): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(385): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(388): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(392): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(395): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(398): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(401): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(404): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(411): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(414): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(417): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(420): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(424): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(427): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(430): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(433): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(440): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(443): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(446): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(449): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(452): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(456): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(459): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(462): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(469): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(472): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(475): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(478): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(481): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(484): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(488): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(491): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\camil\onedrive\dokumenter\github\scanning-project\test1\source.cpp(504): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Test1.vcxproj -> C:\Users\camil\OneDrive\Dokumenter\GitHub\Scanning-Project\x64\Debug\Test1.exe
