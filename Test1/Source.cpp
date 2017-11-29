@@ -283,6 +283,7 @@ int main(int argc, char* argv[]) {
 		if (greenRoute)
 			inRange(hsvImg, Scalar(29, 86, 6), Scalar(64, 255, 255), thrImg);
 
+
 		//Call the functions to detect the shapes + which marker is scanned
 		squareScan();
 		circleScan();
@@ -293,28 +294,28 @@ int main(int argc, char* argv[]) {
 		if (m1) {
 			if (arr[0] == 0) {
 				b1 = true;
-				putText(input, marker1, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, marker1, Point(input.rows*0.25, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 1) {
-				putText(input, "This marker has already been scanned - Find the square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "This marker has already been scanned - Find the square", Point(input.rows*0.25, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 2) {
-				putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Wrong marker - Find the triangle", Point(input.rows*0.25, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 3) {
-				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Wrong marker - Find the circle and triangle", Point(input.rows*0.25, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 4) {
-				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Wrong marker - Find the circle and square", Point(input.rows*0.25, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 5) {
-				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Wrong marker - Find the triangle and square", Point(input.rows*0.25, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 6) {
-				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Wrong marker - Find the triangle, square and circle", Point(input.rows*0.25, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 7) {
-				putText(input, "You are already done, GO HOME", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "You are already done, GO HOME", Point(input.rows*0.5, input.cols*0.25), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 		}
 
@@ -325,7 +326,7 @@ int main(int argc, char* argv[]) {
 			}
 			else if (arr[0] == 1) {
 				b2 = true;
-				putText(input, marker2, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Marker 2 scanned correctly. Now find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 2) {
 				putText(input, "This marker has already been scanned - Find the triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
@@ -357,7 +358,7 @@ int main(int argc, char* argv[]) {
 			}
 			else if (arr[0] == 2) {
 				b3 = true;
-				putText(input, marker3, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Marker 3 scanned correctly. Now find the triangle and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 3) {
 				putText(input, "This marker has already been scanned - Find the circle and triangle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
@@ -389,7 +390,7 @@ int main(int argc, char* argv[]) {
 			}
 			else if (arr[0] == 3) {
 				b4 = true;
-				putText(input, marker4, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Marker 4 scanned correctly. Now find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 4) {
 				putText(input, "This marker has already been scanned - Find the circle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
@@ -421,7 +422,7 @@ int main(int argc, char* argv[]) {
 			}
 			else if (arr[0] == 4) {
 				b5 = true;
-				putText(input, marker5, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Marker 5 scanned correctly. Now find the square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 5) {
 				putText(input, "This marker has already been scanned - Find the triangle and square", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
@@ -453,7 +454,7 @@ int main(int argc, char* argv[]) {
 			}
 			else if (arr[0] == 5) {
 				b6 = true;
-				putText(input, marker6, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Marker 6 scanned correctly. Now find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 6) {
 				putText(input, "This marker has already been scanned - Find the triangle, square and circle", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
@@ -485,7 +486,7 @@ int main(int argc, char* argv[]) {
 			}
 			else if (arr[0] == 6) {
 				b7 = true;
-				putText(input, marker7, Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+				putText(input, "Marker 7 scanned correctly. You are done", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 			}
 			else if (arr[0] == 7) {
 				putText(input, "You are already done, GO HOME", Point(input.rows*0.5, input.cols*0.5), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
@@ -508,10 +509,13 @@ int main(int argc, char* argv[]) {
 
 		// Setup callback function
 		namedWindow(winName);
+
 		setMouseCallback(winName, callBackFunc);
 
 		//Show window
 		imshow(winName, canvas);
+		imshow("s", thrImg);
+
 
 		if (waitKey(30) == 27) { //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
 			cout << "esc key is pressed by user" << endl;
@@ -520,3 +524,5 @@ int main(int argc, char* argv[]) {
 	}
 	return 0;
 }
+
+
